@@ -1,0 +1,171 @@
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+"Indicates what fields are available at the top level of a query operation."
+type Query {
+    "Find a single user by an identifying attribute."
+    user(
+      "Search by primary key."
+      id: ID @eq @rules(apply: ["prohibits:email", "required_without:email"])
+
+      "Search by email address."
+      email: String @eq @rules(apply: ["prohibits:id", "required_without:id", "email"])
+    ): User @find
+
+    "List multiple users."
+    users(
+      "Filters by name. Accepts SQL LIKE wildcards `%` and `_`."
+      name: String @where(operator: "like")
+    ): [User!]! @paginate(defaultCount: 10)
+
+    
+    allReviews(criticID: String! @eq): [Review]! @all
+
+    collequeReviews(criticID: String!, collequeID: String!): [CollequeReview!]!
+
+
+    critics: [Critic]! @all
+    critic(criticID: String! @eq): Critic @find
+
+    distinctGenres: [DistinctGenre]! @all
+
+    movie(googleID: Int! @eq): Movie @find
+    movies: [Movie!]! @all
+
+    reviews: [Review]! @all
+
+    starsBasedOnGenre(genre: String!): [StarsOfTheGenre]!
+    
+
+}
+
+type Actor {
+  googleID: Int!
+  nimi: String!
+  kaviID: String!
+}
+
+"defCompSet: [DefaultCompSet]!"
+type Critic {
+  criticID: String!
+  nimi: String!
+  numbOfReviews: Int!
+  starsAverage: Float!
+  defCompSet: [DefaultCompSet]!
+  reviewerWithSharedItems: [ReviewerWithSharedItems]!
+}
+
+type CollequeReview {
+  criticID: String!
+  googleID: Int!
+  stars: Int!
+}
+
+type DefaultCompSet {
+  googleID: Int!
+  count: Int!
+  starsAverage: Float!
+}
+
+type Director {
+  googleID: Int!
+  nimi: String!
+  kaviID: String!
+}
+
+type Distributor {
+  googleID: Int!
+  nimi: String!
+  kaviID: String!
+}
+
+
+type DistinctGenre {
+  genre: String!
+  numberOfMovies: Int!
+  numberOfReviews: Int! @field(resolver: "App\\GraphQL\\Queries\\Genres@numberOfReviews")
+  starsAverage: Float! @field(resolver: "App\\GraphQL\\Queries\\Genres@starsAverage")
+}
+
+type Genre {
+  genre: String!
+  movie: Movie! @belongsTo
+}
+
+"- Yksittäisen elokuvan tiedot"
+type Movie {
+  id: ID!
+  googleID: Int!
+  nimi: String!
+  wiki: String
+  imdb: String
+  kavi: String
+  img: String!
+  paiva: Int!
+  kuukausi: Int!
+  vuosi: Int!
+  reviews: [Review]! @hasMany
+  genres: [Genre]! @hasMany
+  actors: [Actor]! @hasMany
+  director: [Director]! @hasMany
+  distributor: [Distributor]! @hasMany
+  numbOfReviews: Int! @field(resolver: "App\\GraphQL\\Queries\\Movies@numbOfReviews")
+  ensiIlta: DateTime!
+  writer: [Writer]! @hasMany
+}
+
+
+"- Yksittäisen arvostelun tiedot"
+type Review {
+
+  id: ID!
+  googleID: Int!
+  criticID: String!
+  name: String!
+  stars: Float!
+  movie: Movie! @belongsTo
+  link: String!
+  publisher: String!
+}
+
+""
+type ReviewerWithSharedItems {
+    criticID: String!
+    count: Int!
+    name: String!
+}
+
+type StarsOfTheGenre {
+    name: String
+    stars: [Int!]!
+    total: Int!
+}
+
+
+"Account of a person who utilizes this application."
+type User {
+    "Unique primary key."
+    id: ID!
+
+    "Non-unique name."
+    name: String!
+
+    "Unique email address."
+    email: String!
+
+    "When the email was verified."
+    email_verified_at: DateTime
+
+    "When the account was created."
+    created_at: DateTime!
+
+    "When the account was last updated."
+    updated_at: DateTime!
+}
+
+type Writer {
+  googleID: Int!
+  nimi: String!
+  kaviID: String!
+}
+
