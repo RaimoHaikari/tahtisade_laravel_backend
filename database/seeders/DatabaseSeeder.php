@@ -13,6 +13,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            MovieSeeder::class,
+            ReviewSeeder::class,
+            GenreSeeder::class,
+            ActorSeeder::class,
+            DirectorSeeder::class,
+            DistributorSeeder::class,
+            WriterSeeder::class
+        ]);
     }
 }
