@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+
+use App\Models\Bar;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,12 +15,26 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/about', function () {
-    return '<p>About time!</p>';
+    $critics = Bar::find('anttiSelkokari')
+        ->reviews;
+
+    dd($critics);
+
 });
+*/
+
+/*
+Route::get('/about', function () {
+    return view('scholl');
+});
+*/
+
+
+Route::get('{reactRoutes}', function () {
+    return view('scholl'); // your start view
+})->where('reactRoutes', '^((?!api).)*$'); // except 'api' word
+
 

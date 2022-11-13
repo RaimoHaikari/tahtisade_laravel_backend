@@ -24,6 +24,7 @@ type Query {
     collequeReviews(criticID: String!, collequeID: String!): [CollequeReview!]!
 
 
+    kriitikot: [Bar]! @all
     critics: [Critic]! @all
     critic(criticID: String! @eq): Critic @find
 
@@ -53,6 +54,15 @@ type Critic {
   starsAverage: Float!
   defCompSet: [DefaultCompSet]!
   reviewerWithSharedItems: [ReviewerWithSharedItems]!
+  reviews: [Review]! @hasMany
+}
+
+type Bar {
+  criticID: String!
+  nimi: String!
+  numbOfReviews: Int!
+  starsAverage: Float!
+  reviews: [Review]! @hasMany
 }
 
 type CollequeReview {
