@@ -293,4 +293,5 @@ export const validURL = (str) => {
 
 export const posterUrl = (src) => {
   return `http://www.tahtisadetta.fi/posters/${src}`;
+  //return `./posters/${src}`;
 }

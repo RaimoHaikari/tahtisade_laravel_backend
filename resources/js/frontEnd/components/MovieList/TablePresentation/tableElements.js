@@ -14,7 +14,7 @@ export const TABLE = styled.table`
 
 export const THEAD = styled.thead`
     & > tr {
-        background-color: ${({ theme }) => theme.color.clrNeutral900};
+        background-color: ${({ theme }) => theme.color.clrNeutral100};
     }
     
 `;
@@ -27,11 +27,35 @@ export const TH = styled.th`
     display: table-cell;
     padding: ${({ theme }) => theme.size.size200};
     text-align: left;
-    color: ${({sortingField, theme}) => sortingField ? theme.color.clrNeutral900 : theme.color.clrNeutral100};;
+    color: ${({sortingField, sortable, theme}) => sortingField 
+        ? theme.color.clrAccent400 
+        : sortable 
+            ? theme.color.clrNeutral900 
+            : theme.color.clrPrimary400
+    };
     cursor: ${({sortable}) => sortable ? "pointer" : "default"};
+    font-weight: ${({ theme, sortable }) => sortable 
+        ? theme.fontWeight.fwBold
+        : theme.fontWeight.fwReqular
+    };
+
+    SVG {
+        display: inline;
+    }
+
+    :hover {
+        color: ${({sortingField, sortable, theme}) => sortingField 
+        ? theme.color.clrAccent400 
+        : sortable 
+            ? theme.color.clrAccent400 
+            : theme.color.clrPrimary400
+    };
+    }
+
     &:before {
         display: none;
     }
+
     @media screen and (max-width: ${({theme}) => theme.breakPoint.md}){
         display:none;
     }

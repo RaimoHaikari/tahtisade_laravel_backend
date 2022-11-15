@@ -1,5 +1,10 @@
 import { useState } from "react";
 
+import {
+    SearchContainer,
+    INPUT
+} from "./searchElements";
+
 const Search = ({onSearch, searchStr = ''}) => {
 
     const [search, setSearch] = useState("");
@@ -13,15 +18,14 @@ const Search = ({onSearch, searchStr = ''}) => {
 
 
     return (
-        <div className="search-container">
-            <input
+        <SearchContainer>
+            <INPUT
                 type="text"
-                className="input-search"
                 placeholder="Search"
                 value={searchStr}
                 onChange={e => onInputChange(e.target.value)}
             />        
-        </div>
+        </SearchContainer>
 
     );
 };

@@ -1,7 +1,8 @@
 import axios from "axios";
 
 import {
-    ALL_MOVIES_LARAVEL
+    ALL_MOVIES_LARAVEL,
+    MOVIE_DETAILS_LARAVEL
 } from "../queries";
 
 const backendUrl = '/graphql';
@@ -21,6 +22,23 @@ const getGeneralListing = async () => {
     return response.data
 }
 
+const getMovieDetails = async (id) => {
+
+    const response = await axios.post(
+        backendUrl,
+        {
+            query: MOVIE_DETAILS_LARAVEL,
+            variables: {
+                googleId: id
+            }
+        }
+    )
+
+    return response.data
+
+};
+
 export default {
-    getGeneralListing
+    getGeneralListing,
+    getMovieDetails
 }

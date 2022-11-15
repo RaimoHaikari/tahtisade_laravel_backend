@@ -29,7 +29,7 @@ SVG.scatterplot G.tick text.visually-hidden {
 
 /* 
  * T A B S 
- */
+
 .tab {
   overflow: hidden;
   border: none;
@@ -54,26 +54,20 @@ SVG.scatterplot G.tick text.visually-hidden {
   transition: 0.3s;
 }
 
-/* - Change background color of buttons on hover */
 .tab button:hover {
   background-color: var(--clr-accent-400);
 }
 
-/* - Create an active/current tablink class */
 .tab button.active {
   background-color: var(--clr-neutral-900);
   cursor: default;
 }
 
-/*
- * T A B L E P R E S E N T A T I O N
- */
 .taulukkoesitys {
   border-collapse: collapse; 
   width: 100%; 
   table-layout: auto; 
   font-size: var(--fs-600);
-  /* border-radius: 5px 5px 0 0; */
   overflow: hidden;
 
   margin-bottom: var(--size-500);
@@ -166,9 +160,7 @@ SVG.scatterplot G.tick text.visually-hidden {
 
 }
 
-/* 
- * PAGINATION AND SEARCH
- */
+
 .pagination-and-search {
 
   padding: var(--size-200);
@@ -241,9 +233,7 @@ SVG.scatterplot G.tick text.visually-hidden {
   color: var(--clr-accent-400);
 }
 
-/*
- * S E A R C H
- */
+
 .search-container {
   margin-left: auto;
 }
@@ -253,9 +243,7 @@ SVG.scatterplot G.tick text.visually-hidden {
   padding: var(--size-400);
 }
 
-/* 
- * T O G G L A B L E
- */
+
 .togglable-container {}
 
 .togglable-container button {
@@ -283,9 +271,7 @@ SVG.scatterplot G.tick text.visually-hidden {
   font-size: var(--fs-700);
 }
 
-/* 
- * C O N T E N T   L A Y O U T
- */
+
 .contentWrap {
   display: flex;
 }
@@ -298,9 +284,7 @@ SVG.scatterplot G.tick text.visually-hidden {
   flex: 1
 }
 
-/* 
- * G E N R E S   C H E C K B O X L I S T
- */
+
 .checkBoxList-container {
 
   background-color: var(--clr-accent-100);
@@ -342,7 +326,6 @@ SVG.scatterplot G.tick text.visually-hidden {
   display: none;   
 }
 
-/* Hide the browser's default checkbox */
 .checkBoxList-container input {
   position: absolute;
   opacity: 0;
@@ -354,3 +337,4 @@ SVG.scatterplot G.tick text.visually-hidden {
 .checkBoxList-container input:checked ~ span {
   background-color: #2196F3;
 }
+*/

@@ -24,7 +24,7 @@ const Movies = () => {
 
     return (
 
-        <section className='padding-block-900'>
+        <section className='padding-block-700'>
 
             <div className='container'>
             

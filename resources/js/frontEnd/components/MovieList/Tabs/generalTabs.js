@@ -2,8 +2,19 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { updateDisplayType } from "../../../reducers/sharedReducer";
 
+import Card from "../Card";
 import TablePresentation from "../TablePresentation";
 
+import {
+    TAB,
+    BUTTON,
+    CONTAINER
+} from "./tabElements";
+
+/*
+ * How TO - Tabs
+ * https://www.w3schools.com/howto/howto_js_tabs.asp
+ */
 const GeneralTabs = ({store}) => {
 
     const dispatch = useDispatch();
@@ -16,9 +27,9 @@ const GeneralTabs = ({store}) => {
         switch(d.content) {
             case 'MOVIELIST_TABLE':
                 return <TablePresentation key={`${i}-tbl`} />
-            /*
             case 'MOVIELIST_CARD':
                 return <Card key={`${i}-card`} />
+            /*
             case 'GENRELIST_TABLE':
                 return <GeneralTable key={`${i}-tbl`} store='genreList' />
             case 'REVIEWERLIST_TABLE':
@@ -37,13 +48,14 @@ const GeneralTabs = ({store}) => {
             {
                 displayTypes.map((d,i) => {
                     return (
-                        <div
+                        <CONTAINER
                             key = {`generalTabs-${store}-content-${i}`}
+                            visible={d.active}
                         >
                         {
                             displayContent(d, i)
                         }
-                        </div>
+                        </CONTAINER>
                     )
                 })
             }
@@ -55,27 +67,28 @@ const GeneralTabs = ({store}) => {
     const getTabLinks = () => {
         
         return (
-            <div className="tab">
+            <TAB>
             {
                 displayTypes.map((d,i) => {
+
+                    console.log(d)
+
                     return (
-                        <button
-                            key={`generalTabs-${store}-tabs-${i}`}
-                            onClick = {() => dispatch(
-                                updateDisplayType({
-                                    type: d.name,
-                                    store: store
-                                })
-                            )}
-                            className = {d.active ? "active" : ""}
+                        <BUTTON
+                            key={i}
+                            onClick={() => dispatch(updateDisplayType({
+                                type: d.name,
+                                store: store
+                            }))}
+                            active = {d.active}
                         >
-                            {d.name}
-                        </button>
+                        {d.name}
+                        </BUTTON>
                     )
                 })
             }
             
-            </div>
+            </TAB>
         )
     }
 

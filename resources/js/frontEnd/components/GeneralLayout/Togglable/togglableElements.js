@@ -20,10 +20,29 @@ export const BUTTON = styled.button`
     display: flex;
     aling-items: center;
     justify-content: space-between;
+    border: none;
+
+    &:hover {
+        background: ${({theme})  => theme.color.clrAccent400};
+    }
 
 `;
 
+/*
+    outline-color: ${({theme}) => theme.color.clrAccent500};;
+    outline-style: solid;
+    outline-size: 1px;
+*/
 export const WRAPPER = styled.div`
+
+
+    border-left-color:  ${({theme})  => theme.color.clrAccent400};
+    border-left-width: 1px;
+    border-left-style: dotted;
+
+    padding: 0;
+    margin: 0;
+
     &.hideContent{
         display: none;
     }

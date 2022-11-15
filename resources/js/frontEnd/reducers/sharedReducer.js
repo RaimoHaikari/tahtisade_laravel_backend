@@ -8,6 +8,10 @@ import {
     setSortingSettings
 } from './movieListReducer';
 
+import {
+    setSortingSettings as setSingleMovieSortingSettings
+} from './singleMovieReducer';
+
 const initialState = {};
 
 const sharedSlice = createSlice({
@@ -124,11 +128,10 @@ export const updateSortingSetting = (val) => {
             case 'singleReviewer':
                 dispatch(setSingleReviewerSortingSettings({field: val.field}));
                 break;
+            */
             case 'singleMovie':
                 dispatch(setSingleMovieSortingSettings({field: val.field}))
                 break;
-            */
-
         }
     }
 }

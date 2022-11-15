@@ -36,9 +36,9 @@ const BasicTheme = {
         fsButton: 'var(--fs-button)'
     },
     fontWeight: {
-        fwReqular: 'var(--fw-regular: 400)',
-        fwSemiBold: 'var(--fw-semi-bold: 500)',
-        fwBold: 'var(--fw-bold: 700)'
+        fwReqular: 'var(--fw-regular)',
+        fwSemiBold: 'var(--fw-semi-bold)',
+        fwBold: 'var(--fw-bold)'
     },
     size: {
         size100: 'var(--size-100)',
@@ -49,7 +49,7 @@ const BasicTheme = {
         size600: 'var(--size-600)',
         size700: 'var(--size-700)',
         size800: 'var(--size-800)',
-        size900: 'var(--size-800)'
+        size900: 'var(--size-900)'
     }
 }
 
