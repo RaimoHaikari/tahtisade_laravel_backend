@@ -1,5 +1,4 @@
 //import { useEffect } from "react";
-
 import {
     BrowserRouter as Router,
     Routes,
@@ -31,6 +30,7 @@ const App = () => {
     console.log("T:", MIX_TILULILU);
     */
 
+
     return (
         <Router>
 
@@ -43,7 +43,7 @@ const App = () => {
                 <Route path="/elokuvat" element={<Movies />} />
                 <Route path="/suositukset" element={<Recommendations />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/" element={<LandingPage />} />
+                <Route path="*" element={<LandingPage />} />
             </Routes>
 
             <Footer />
