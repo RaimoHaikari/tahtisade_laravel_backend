@@ -17,6 +17,9 @@ mix
     .postCss('resources/css/app.css', 'public/css')
     .postCss('resources/css/generalLayout.css', 'public/css')
     .setResourceRoot("/")
+    .options({
+        processCssUrls: false
+     });
 
 /*
 mix.js('resources/js/app.js', 'public/js')
