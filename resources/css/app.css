@@ -227,7 +227,7 @@ body {
 
         aspect-ratio: 1;
 
-        background-image: url('./images/hamburger.svg');
+        background-image: url('../images/hamburger.svg');
         background-size: 100% auto; 
         background-repeat: no-repeat;
         background-position: center center;
