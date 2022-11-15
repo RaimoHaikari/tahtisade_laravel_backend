@@ -1,5 +1,5 @@
 import Jambo from "../../components/Logos/Jambo";
-import Kansi from "../../../../images/tahtisade-kansi-leikattu.png";
+import Kansi from "../../../images/tahtisade-kansi-leikattu.png";
 
 const LandingPage = () => {
 
