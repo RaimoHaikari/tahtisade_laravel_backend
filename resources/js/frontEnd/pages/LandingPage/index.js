@@ -18,7 +18,7 @@ const LandingPage = () => {
                     </div>
 
                     <div>
-                        <img src="/images/tahtisade-kansi-leikattu.png" alt="Kriitikko työnsä äärellä"/>
+                        <img src="public/images/tahtisade-kansi-leikattu.png" alt="Kriitikko työnsä äärellä"/>
                     </div>
                 </div>
             </div>
