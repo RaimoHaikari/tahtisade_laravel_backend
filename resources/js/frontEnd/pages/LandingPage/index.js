@@ -1,6 +1,9 @@
-import Jambo from "../../components/Logos/Jambo";
-import Kansi from "../../../../images/tahtisade-kansi-leikattu.png";
+//import Jambo from "../../components/Logos/Jambo";
+//import Kansi from "../../../../images/tahtisade-kansi-leikattu.png";
 
+/*
+<img src="/images/slider-girl.png" />
+*/
 const LandingPage = () => {
 
     return (
@@ -15,7 +18,7 @@ const LandingPage = () => {
                     </div>
 
                     <div>
-                        <img src={Kansi} alt="Kriitikko työnsä äärellä"/>
+                        <img src="/images/tahtisade-kansi-leikattu.png" alt="Kriitikko työnsä äärellä"/>
                     </div>
                 </div>
             </div>
