@@ -5,7 +5,8 @@ import {
     MOVIE_DETAILS_LARAVEL
 } from "../queries";
 
-const backendUrl = '/graphql';
+//const backendUrl = '/graphql';
+const backendUrl = 'http://tietokana.tahtisadetta.fi/graphql';
 
 /*
  * Haetaan elokuvat listaavalla sivulla esitettävät yhteenvetotiedot
