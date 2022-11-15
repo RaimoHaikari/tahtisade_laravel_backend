@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 use App\Casts\ReviewerWithSharedItems;
 use App\Models\DefaultCompset;
@@ -17,6 +18,35 @@ class Critic extends Model
      * @var string
      */
     protected $table = 'distinct_critics';
+
+    /**
+     * The primary key associated with the table.
+     * 
+     * - Lisätty: 07.11.2022
+     *
+     * @var string
+     */
+    protected $primaryKey = 'criticID';
+
+    /**
+     * Indicates if the model's ID is auto-incrementing.
+     * 
+     * - Lisätty: 07.11.2022
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
+     * The data type of the auto-incrementing ID.
+     * 
+     * - Lisätty: 07.11.2022
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+
+
 
     /**
      * The accessors to append to the model's array form.
@@ -34,6 +64,15 @@ class Critic extends Model
     protected $casts = [
         'reviewerWithSharedItems' => ReviewerWithSharedItems::class,
     ];
+
+    /**
+     * Yhdistetään kriitikko hänen antamien arvostelujen kassa.
+     * 
+     * - Lisätty: 07.11.2022
+     */
+    public function reviews(): HasMany {
+        return $this->hasMany(Review::class, 'criticID', 'criticID');
+    }
 
     /**
      * Determine if the user is an administrator.
