@@ -13,7 +13,6 @@ export const Container = styled.div`
 
 export const PaginationAndSearch = styled.div`
 
-    padding-top: ${({theme}) => theme.navbar.height};
     padding-right: 2px;
     padding-bottom: 2px;
     padding-left: 2px;
