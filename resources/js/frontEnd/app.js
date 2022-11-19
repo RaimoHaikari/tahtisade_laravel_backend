@@ -8,6 +8,7 @@ import {
 import LandingPage from "./pages/LandingPage";
 import Movies from "./pages/Movies";
 import Movie from "./pages/Movie";
+import Critic from "./pages/Critic";
 import Critics from "./pages/Critics";
 import Genres from "./pages/Genres";
 import Recommendations from "./pages/Recommendations";
@@ -38,6 +39,7 @@ const App = () => {
 
             <Routes>
                 <Route path="/genret" element={<Genres />} />
+                <Route path="/kriitikot/:id" element={<Critic />} />
                 <Route path="/kriitikot" element={<Critics />} />
                 <Route path="/elokuvat/:id" element={<Movie />} />
                 <Route path="/elokuvat" element={<Movies />} />

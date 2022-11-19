@@ -9,8 +9,20 @@ import {
 } from './movieListReducer';
 
 import {
+    setSearchSettings as setReviewerlistSearchSettings,
+    setSortingSettings as setReviewerlistSortingSettings,
+    setCurretPage as setReviewerlistCurretPage
+} from './reviewerListReducer';
+
+import {
     setSortingSettings as setSingleMovieSortingSettings
 } from './singleMovieReducer';
+
+import {
+    setSearchSettings as setSingleReviewerSearchSettings,
+    setSortingSettings as setSingleReviewerSortingSettings,
+    setCurretPage as setSingleReviewerCurretPage
+} from './singleReviewerReducer';
 
 const initialState = {};
 
@@ -40,16 +52,14 @@ export const updateCurretPage = (val) => {
 
                 dispatch(setGenrelistCurretPage({ page: val.page }));
                 break;
+                */
 
             case 'reviewerList':
                 dispatch(setReviewerlistCurretPage({ page: val.page }));
                 break;
-
             case 'singleReviewer':
                 dispatch(setSingleReviewerCurretPage({ page: val.page }));
                 break;
-                */
-    
 
         }
     }
@@ -89,11 +99,12 @@ export const updateSearchSetting = (val) => {
 
                 dispatch(setGenrelistSearchSettings({ str: val.str }));
                 break;
+            
+            */
 
             case 'reviewerList':
                 dispatch(setReviewerlistSearchSettings({ str: val.str }));
                 break;
-
             case 'singleReviewer':
                 dispatch(
                     setSingleReviewerSearchSettings({ 
@@ -102,8 +113,6 @@ export const updateSearchSetting = (val) => {
                     })
                 );
                 break;
-            */
-
         }
     }
 }
@@ -122,13 +131,13 @@ export const updateSortingSetting = (val) => {
             case 'genreList':
                 dispatch(setGenrelistSortingSettings({field: val.field}));
                 break;
+            */
             case 'reviewerList':
                 dispatch(setReviewerlistSortingSettings({field: val.field}));
                 break;
             case 'singleReviewer':
                 dispatch(setSingleReviewerSortingSettings({field: val.field}));
                 break;
-            */
             case 'singleMovie':
                 dispatch(setSingleMovieSortingSettings({field: val.field}))
                 break;

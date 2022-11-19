@@ -1,0 +1,29 @@
+	/* Make the percentage on the text labels bold*/
+.toolCircle tspan {
+    font-size: 3em;
+    font-style: normal;
+    font-weight: 700;
+}
+
+/* In biology we generally italicise species names. */
+.labelName {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.sector {
+    stroke: black;
+    stroke-width: 5;
+}
+
+.opacityPlus {
+    fill-opacity: 1.0
+}
+
+.opacityNeutral {
+    fill-opacity: 0.6
+}
+
+.opacityMinus {
+    fill-opacity: 0.1
+}

@@ -16,7 +16,6 @@ const Search = ({onSearch, searchStr = ''}) => {
 
     }
 
-
     return (
         <SearchContainer>
             <INPUT

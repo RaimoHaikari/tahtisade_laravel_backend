@@ -46,6 +46,7 @@ export const WRAPPER = styled.div`
     &.hideContent{
         display: none;
     }
+
 `;
 
 export const CloseIcon = styled(IoIosClose)`

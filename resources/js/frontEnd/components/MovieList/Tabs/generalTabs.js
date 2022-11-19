@@ -4,6 +4,7 @@ import { updateDisplayType } from "../../../reducers/sharedReducer";
 
 import Card from "../Card";
 import TablePresentation from "../TablePresentation";
+import GeneralTable from "../TablePresentation/GeneralTable";
 
 import {
     TAB,
@@ -29,13 +30,11 @@ const GeneralTabs = ({store}) => {
                 return <TablePresentation key={`${i}-tbl`} />
             case 'MOVIELIST_CARD':
                 return <Card key={`${i}-card`} />
-            /*
             case 'GENRELIST_TABLE':
                 return <GeneralTable key={`${i}-tbl`} store='genreList' />
             case 'REVIEWERLIST_TABLE':
                 return <GeneralTable key={`${i}-tbl`} store='reviewerList' />
-            */
-
+            
           }
 
     }
