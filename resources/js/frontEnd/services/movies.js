@@ -2,10 +2,12 @@ import axios from "axios";
 
 import {
     ALL_CRITICS_LARAVEL,
+    ALL_GENRES_LARAVEL,
     ALL_MOVIES_LARAVEL,
     COLLEQUE_REVIEWS_LARAVEL,
     MOVIE_DETAILS_LARAVEL,
-    SINGLE_CRITIC_LARAVEL
+    SINGLE_CRITIC_LARAVEL,
+    STARS_BASED_ON_GENRE_LARAVEL
 } from "../queries";
 
 //const backendUrl = '/graphql';
@@ -76,6 +78,21 @@ const getGeneralListing = async () => {
     return response.data
 }
 
+/*
+ * Haetaan genreluokkien yhteenvetosivulla esitettävät tiedot
+ */
+const getGenresOverview = async () => {
+
+   const response = await axios.post(
+       backendUrl,
+       {
+           query: ALL_GENRES_LARAVEL
+       }
+   )
+
+   return response.data
+}
+
 const getMovieDetails = async (id) => {
 
     const response = await axios.post(
@@ -92,10 +109,28 @@ const getMovieDetails = async (id) => {
 
 };
 
+const getStarsBasedOnGenres = async (genre) => {
+
+    const response = await axios.post(
+        backendUrl,
+        {
+            query: STARS_BASED_ON_GENRE_LARAVEL,
+            variables: {
+                genre: genre
+            }
+        }
+    )
+
+    return response.data
+
+};
+
 export default {
     getCollequeReviews,
     getCriticsOverview,
     getCriticDetails,
     getGeneralListing,
-    getMovieDetails
+    getGenresOverview,
+    getMovieDetails,
+    getStarsBasedOnGenres
 }
