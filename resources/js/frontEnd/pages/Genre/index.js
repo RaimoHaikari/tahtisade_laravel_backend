@@ -8,6 +8,7 @@ import Togglable from "../../components/GeneralLayout/Togglable";
 import GenreCard from "../../components/SingleGenre";
 import GenreList from "../../components/SingleGenre/GenreList";
 import Info from "../../components/SingleGenre/Info";
+import CountDown from '../../components/Countdown';
 
 import {
     Container,
@@ -31,10 +32,10 @@ const Genre = () => {
 
 
     return (
-        <Container>
+        <section className='padding-block-700'>
         {
             loading === true
-            ? <p>L.A.D.A.T.A.A.N...</p>
+            ? <CountDown />
             : data === null
                 ? null
                 : <InfoCardWrapper>
@@ -53,7 +54,7 @@ const Genre = () => {
                     </Graph>
                   </InfoCardWrapper>
         }
-        </Container>
+        </section>
     );
 };
 

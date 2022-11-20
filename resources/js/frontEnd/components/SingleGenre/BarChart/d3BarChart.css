@@ -1,18 +1,18 @@
 SVG.starsDistribution text {
-    font-size: 1.2em;
+    font-size: var(--fs-600);
 }
 
 
 rect.activeGenre {
-   stroke: white;
+   stroke: var(--clr-accent-100);
    stroke-width: 1;
-   fill: #dd4814;
+   fill: var(--clr-accent-400);
 }
 
 rect.compGenre {
    stroke: none;
    stroke-width: 1;
-   fill: #333333;
+   fill: var(--clr-primary-400);
    opacity: 0.8;
 }
 
@@ -23,12 +23,12 @@ g.yAxis path.domain {
 }
 
 .tick line {
-   stroke:#411a35;
+   stroke:var(--clr-neutral-900);
    stroke-dasharray: 4;
 }
 
 g.yAxisLbl text {
-   letter-spacing: 10px;
+   letter-spacing: var(--size-300);
    font-size: smaller;
    text-anchor: middle;
    transform: rotate(-90deg)
@@ -36,5 +36,5 @@ g.yAxisLbl text {
 
 /* X - A k s e l i */
 g.xAxis text {
-   letter-spacing: 10px; 
+   letter-spacing: var(--size-300); 
 }

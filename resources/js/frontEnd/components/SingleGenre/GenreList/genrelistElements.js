@@ -12,19 +12,22 @@ export const LABEL = styled.label`
 
     display: inline-flex;
     align-items: center;
-    cursor: pointer;
 
+    cursor: ${props => props.disabled ? "default" : "pointer"};
     font-size: ${({theme}) => theme.fontSize.fs600};
 
     /* margin-right: 10px; */
     margin-bottom: ${({theme}) => theme.size.size300};;
 
-    color: ${props => props.disabled ? props.theme.color.clrAccent500: "inherit"};
+    color: ${props => props.disabled 
+        ? props.theme.color.clrAccent500
+        : "inherit"
+    };
 
     & > div.radioRadio {
         width: ${({theme}) => theme.size.size400};
         height: ${({theme}) => theme.size.size400};
-        border: ${props => props.disabled ? "2px solid #efedecff": "2px solid #d8e4e2"};
+        border: ${(props, theme) => props.disabled ? "none": "2px solid #d8e4e2"};
         /* border: 2px solid #d8e4e2; */
         border-radius: 50%;
         margin-right: ${({theme}) => theme.size.size300};
@@ -39,7 +42,11 @@ export const LABEL = styled.label`
         height: 100%;
         display: block;
 
-        background-color: #009879;  
+        outline-width: 1px;
+        outline-style: solid;
+        outline-color: ${({theme}) => theme.color.clrNeutral900};
+
+        background-color:  ${({theme}) => theme.color.clrAccent400};  
         border-radius: 50%;  
         transform: scale(0);
         transition: transform 0.15s;

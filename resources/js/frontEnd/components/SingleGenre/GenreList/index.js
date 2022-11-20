@@ -12,14 +12,15 @@ const GenreList = () => {
 
     const dispatch = useDispatch();
 
-    const { data, id } = useSelector(state => {
+    const { data, id, compName } = useSelector(state => {
 
         let a = state.singleGenre;
+        let compGenre = state.singleGenre.compGenre;
 
         return {
             id: a.activeGenre.id,
-            data: a.data
-
+            data: a.data,
+            compName: compGenre.data.name
         }
     });
 
@@ -31,8 +32,8 @@ const GenreList = () => {
                     return (
                         <LABEL
                             htmlFor={`rb_${index}`}
-                            className="radio"
                             disabled={d.name === id}
+                            compared={d.name === compName}
                             key={index}
                         >
                             <INPUT 

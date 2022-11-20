@@ -16,7 +16,7 @@ const BarChart = () => {
         return {
             id: ac.id,
             acData: ac.data.values,
-            cgData: state.singleGenre.compCenre.data.scaled,
+            cgData: state.singleGenre.compGenre.data.scaled,
             maxNumbOfStars: state.singleGenre.maxNumbOfStars
         }
 

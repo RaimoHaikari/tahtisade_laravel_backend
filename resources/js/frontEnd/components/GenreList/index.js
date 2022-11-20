@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { initializeGenres } from "../../reducers/genreListReducer";
 
 import GeneralTabs from "../MovieList/Tabs/generalTabs";
+import CountDown from '../Countdown';
 
 const GenreList = () => {
 
@@ -27,7 +28,7 @@ const GenreList = () => {
         <>
         {
             loading === true
-            ? <p>L.A.D.A.T.A.A.N...</p>
+            ? <CountDown />
             : data === null
                 ? null
                 : <GeneralTabs store="genreList" />

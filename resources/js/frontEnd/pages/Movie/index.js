@@ -16,6 +16,7 @@ import {
 import MovieCard from '../../components/SingleMovie';
 import Poster from '../../components/SingleMovie/Poster';
 import Reviews from '../../components/SingleMovie/Reviews';
+import CountDown from '../../components/Countdown';
 
 
 const Movie = () => {
@@ -38,7 +39,7 @@ const Movie = () => {
         <Container>
             {
                 (loading === true)
-                ? <p>L.A.D.A.T.A.A.N</p>
+                ? <CountDown />
                 : data === null
                     ? null
                     : <InfoCardWrapper>

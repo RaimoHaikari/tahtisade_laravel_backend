@@ -13,7 +13,7 @@ const DEFAULT_COMP_GENRE = 'Ei vertailua';
 
 const initialState = {
     activeGenre: {id: null, data: null},             
-    compCenre: {id: null, data: null},
+    compGenre: {id: null, data: null},
     data: null,
     loading: false,
     maxNumbOfStars: -1
@@ -84,7 +84,7 @@ const displayGenreData = (state, data, id) => {
     return {
         ...state,
         activeGenre: {id: newActiveId, data: activeGenreData},
-        compCenre: {id: DEFAULT_COMP_GENRE, data: compGenreData},
+        compGenre: {id: DEFAULT_COMP_GENRE, data: compGenreData},
         data: newData,
         loading: false,
         maxNumbOfStars: maxNumbOfStars
@@ -167,7 +167,7 @@ const etCompGenre = (state, id) => {
 
     return {
         ...state,
-        compCenre: {id: newCompId, data: compGenreData},
+        compGenre: {id: newCompId, data: compGenreData},
     }
 
 }
