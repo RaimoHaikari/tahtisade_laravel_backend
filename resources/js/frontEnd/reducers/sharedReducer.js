@@ -2,6 +2,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { 
+    setSearchSettings as setGenrelistSearchSettings,
+    setSortingSettings as setGenrelistSortingSettings,
+    setCurretPage as setGenrelistCurretPage
+} from './genreListReducer';
+
+import { 
     setCurretPage, 
     setDisplayType, 
     setSearchSettings,
@@ -46,14 +52,9 @@ export const updateCurretPage = (val) => {
 
                 dispatch(setCurretPage({ page: val.page }));
                 break;
-
-                /*
             case 'genreList':
-
                 dispatch(setGenrelistCurretPage({ page: val.page }));
                 break;
-                */
-
             case 'reviewerList':
                 dispatch(setReviewerlistCurretPage({ page: val.page }));
                 break;
@@ -90,18 +91,11 @@ export const updateSearchSetting = (val) => {
         switch(val.store){
             
             case 'movieList': 
-
                 dispatch(setSearchSettings({ str: val.str }));
                 break;
-
-            /*
             case 'genreList':
-
                 dispatch(setGenrelistSearchSettings({ str: val.str }));
                 break;
-            
-            */
-
             case 'reviewerList':
                 dispatch(setReviewerlistSearchSettings({ str: val.str }));
                 break;
@@ -127,11 +121,9 @@ export const updateSortingSetting = (val) => {
             case 'movieList': 
                 dispatch(setSortingSettings({field: val.field}));
                 break;
-            /*
             case 'genreList':
                 dispatch(setGenrelistSortingSettings({field: val.field}));
                 break;
-            */
             case 'reviewerList':
                 dispatch(setReviewerlistSortingSettings({field: val.field}));
                 break;

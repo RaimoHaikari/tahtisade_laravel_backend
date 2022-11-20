@@ -14,7 +14,7 @@ const Toolbar = () => {
                 ? <Togglable buttonLabel="Arvostelujen määrä">
                     <Slider />
                   </Togglable>
-                : "Lista puuttuu"
+                : null
             }
         </>
     );

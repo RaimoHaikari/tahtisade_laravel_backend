@@ -9,7 +9,7 @@ import Colleaques from "../../components/SingleReviewer/Colleagues";
 import Togglable from "../../components/GeneralLayout/Togglable";
 import Reviews from "../../components/SingleReviewer";
 import ReusableD3Donut from "../../components/SingleReviewer/aReusableDonut";
-
+import CountDown from "../../components/Countdown";
 
 import {
     Container,
@@ -40,10 +40,10 @@ const Critic = () => {
     }, [data]);
 
     return (
-        <Container>
+        <section className='padding-block-700'>
         {
             loading === true
-            ? <p>L.A.D.A.T.A.A.N . . . </p>
+            ? <CountDown />
             : data === null
                 ? null
                 : <InfoCardWrapper>
@@ -81,7 +81,7 @@ const Critic = () => {
                     </Graph>
                   </InfoCardWrapper>
         }
-        </Container>
+        </section>
     );
 };
 

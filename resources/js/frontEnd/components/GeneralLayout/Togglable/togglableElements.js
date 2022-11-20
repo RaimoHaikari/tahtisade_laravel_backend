@@ -36,9 +36,9 @@ export const BUTTON = styled.button`
 export const WRAPPER = styled.div`
 
 
-    border-left-color:  ${({theme})  => theme.color.clrAccent400};
-    border-left-width: 1px;
-    border-left-style: dotted;
+    border-color:  ${({theme})  => theme.color.clrAccent400};
+    border-width: 1px;
+    border-style: dotted;
 
     padding: 0;
     margin: 0;

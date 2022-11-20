@@ -1,36 +1,24 @@
-//import { useEffect } from "react";
 import {
     BrowserRouter as Router,
     Routes,
     Route
 } from "react-router-dom";
 
+import About from "./pages/About";
+import Critic from "./pages/Critic";
+import Critics from "./pages/Critics";
+import Genre from "./pages/Genre";
+import Genres from "./pages/Genres";
 import LandingPage from "./pages/LandingPage";
 import Movies from "./pages/Movies";
 import Movie from "./pages/Movie";
-import Critic from "./pages/Critic";
-import Critics from "./pages/Critics";
-import Genres from "./pages/Genres";
 import Recommendations from "./pages/Recommendations";
-import About from "./pages/About";
+
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const App = () => {
-
-    /*
-    useEffect(() => {
-        window.process = {
-          ...window.process,
-        };
-    }, []);
-
-    const { MIX_TILULILU } = process.env;
-
-    console.log("T:", MIX_TILULILU);
-    */
-
 
     return (
         <Router>
@@ -38,6 +26,7 @@ const App = () => {
             <Header />
 
             <Routes>
+                <Route path="/genret/:id" element={<Genre />} />
                 <Route path="/genret" element={<Genres />} />
                 <Route path="/kriitikot/:id" element={<Critic />} />
                 <Route path="/kriitikot" element={<Critics />} />

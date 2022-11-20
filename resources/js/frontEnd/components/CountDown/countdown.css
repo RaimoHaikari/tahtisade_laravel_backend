@@ -1,0 +1,14 @@
+.circles {
+    stroke: white;
+    stroke-width: 0.5%;
+    fill: none;
+}
+
+.lines {
+    stroke: black; 
+}
+
+.needle {
+    stroke: red;
+    stroke-width: 0.5%;
+}
