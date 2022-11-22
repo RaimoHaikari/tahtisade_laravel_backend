@@ -981,7 +981,7 @@ export const initializeReviewer = (id) => {
 
         // const sbog = await movieService.getStarsBasedOnGenres(id);
         const sRew = await movieService.getCriticDetails(id);
-        console.log(sRew);
+        // console.log(sRew);
 
         dispatch(fetchingData({
             loading: false,
@@ -1006,6 +1006,7 @@ export const loadColleagueData = (id, compId) => {
         }));
 
         const sbog = await movieService.getCollequeReviews(id, compId);
+        console.log(sbog)
 
         dispatch(setComparedReviewer({
             loading: false,

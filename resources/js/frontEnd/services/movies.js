@@ -10,8 +10,8 @@ import {
     STARS_BASED_ON_GENRE_LARAVEL
 } from "../queries";
 
-//const backendUrl = '/graphql';
-const backendUrl = 'http://tietokana.tahtisadetta.fi/graphql';
+const backendUrl = '/graphql';
+// const backendUrl = 'http://tietokana.tahtisadetta.fi/graphql';
 
 /* Vertailuun valitun kriitikon arvio aktiivisen kriitikon arvostelemista elokuvista */
 const getCollequeReviews = async (criticID, collequeID) => {

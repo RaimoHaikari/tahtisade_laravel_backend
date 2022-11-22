@@ -84,7 +84,7 @@ export const criticsGQ = [
                 googleID: "Snakes on a Plane",
                 stars: 4.0
             },{
-                googleID: "You, Me and Dupree",
+                googleID: "The Night Listener",
                 stars: 3.0
             },{
                 googleID: "Superman Returns",
