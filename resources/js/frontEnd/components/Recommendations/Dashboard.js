@@ -64,7 +64,7 @@ const Dashboard = () => {
         dispatch(fooBar())
     }
 
-    console.log(_data);
+    //console.log(_data);
 
     return (
         <div>

@@ -68,7 +68,7 @@ type Bar {
 type CollequeReview {
   criticID: String!
   googleID: Int!
-  stars: Int!
+  stars: Float!
 }
 
 type DefaultCompSet {
