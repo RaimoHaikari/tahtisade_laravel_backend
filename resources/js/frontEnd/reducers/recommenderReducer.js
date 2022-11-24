@@ -3,7 +3,7 @@
  */
 import { createSlice, current, original } from '@reduxjs/toolkit';
 
-import { critics, criticsGQ } from '../misc/mockData';
+import { critics, criticsGQ, prefsGQ} from '../misc/mockData';
 
 import {intersection } from 'lodash'
 
@@ -286,7 +286,7 @@ const topMatches = (prefs, person, n=5, similarity = simPearson) => {
 }
 
 /*
- * Muunnetaan palvelimelta luettu aineisto helpommin käsiteltävään muotoon.
+ * Muunnetaan palvelimelta luettu aineisto helpommin käsiteltävään muotoon
  *
  * @param data Palvelimelta luettu graphQL aineisto
  */
@@ -294,15 +294,13 @@ const transformData = (data) => {
 
     const transformed = {};
 
-    data.forEach(d => {
+    Object.keys(data).forEach(critic => {
 
-        const key = d.criticID;
         const values = {};
+        data[critic].forEach(r => values[r.googleID] = r.stars);
+        transformed[critic] = values;
 
-        d.reviews.forEach(review => values[review.googleID] = review.stars);
-
-        transformed[key] = values;
-    })
+    });
 
     return transformed;
 
@@ -347,11 +345,15 @@ const recommenderSlice = createSlice({
         fooBar(state, action) {
 
             console.log("Jotain tarttis tehdä");
+            console.log(current(state.data));
+            
+            const critic1 = 'jouniVikman';
+            const critic2 = 'avola';
 
-            console.log(simDistance(state.data, 'Lisa Rose', 'Gene Seymour'));
+            //console.log(simDistance(state.data, critic1, critic2));
             //console.log(simPearson(state.data, 'Lisa Rose', 'Gene Seymour'));
-            //console.log(topMatches(state.data, 'Toby', 3));
-            //console.log(getRecommendations(state.data, 'Toby'));
+            //console.log(topMatches(state.data, critic1, 10));
+            console.log(getRecommendations(state.data, critic1));
             //const movies = transformPrefs(state.data);
             //console.log(movies);
 
@@ -417,13 +419,14 @@ export const initialize = () => {
 
         setTimeout(() => {
 
-            const data = criticsGQ;
             //const data = critics;
-            
+            //const data = criticsGQ;
+            const response = prefsGQ;
+  
             dispatch(fetchingData({
                 loading: false,
-                data: transformData(data),
-                // data: data
+                data: transformData(response.data)
+
             }))
 
         }, 500);

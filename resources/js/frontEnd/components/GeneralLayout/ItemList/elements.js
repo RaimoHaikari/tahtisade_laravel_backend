@@ -11,6 +11,8 @@ export const PaginationAndSearch = styled.div`
 
     padding: ${({theme}) => theme.size.size200};
 
+    
+
     display: flex;
 
     & .paginationContainer {

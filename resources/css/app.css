@@ -43,6 +43,8 @@
     --size-700: 3rem;
     --size-800: 4rem;
     --size-900: 8rem;  
+
+    --max-width: 1110px;
   
     --modal-img-max-width: 900px;
   }
@@ -390,6 +392,7 @@ body {
 
 .padding-block-700 {
   padding-block: var(--size-700);
+  outline: 1px solid navy;
 }
 
 @media (max-width: 50em) {
@@ -414,11 +417,12 @@ body {
 }
 
 .container {
-  --max-width: 1110px;
+
   --padding: 1rem;
 
   width: min(var(--max-width), 100% - (var(--padding) * 2));
   margin-inline: auto;
+  background: var(--clr-neutral-100);
 }
 
 

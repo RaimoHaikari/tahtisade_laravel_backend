@@ -57,12 +57,14 @@ const initialState = {
     paginationLinks: [],
     originalColleaquesList: null,
     reviewerData: null,             // Aktiivisen kriitikon tiedot
+    scatterPlotData: [],            // Vertailun hajontakuviossa esitettävä kaikka yhteiset arvosanat (sivutuste ei siis huomioita)
     searchStr: '',                  // Elokuvaluetteloon kohdistuva haku
     selectedMovies: DEFAULT_SELECTED_MOVIES,
     shares: null,
     sortingField: '',
     sortingOrder: '',
     visibleData: null,
+    barBar: null,
 }
 
 /*
@@ -134,11 +136,13 @@ const displayReviewerData = (state, data ) => {
     let visibleData = getPresentedReviewsList(
         newData, 
         state.searchStr, 
-        state.sortingField, 
-        state.sortingOrder, 
+        state.sortingField,
+        state.sortingOrder,
         getActiveCompData(newActiveCompId, newCompset),
         state.selectedMovies
     );
+
+    let scatterPlotData = visibleData.map(d => [d.starsAverage, d.compStars]);
 
     /* Jaotetellaan elokuvat sen perustella, kumpi antoi enemmän tähtiä (aktiivinen kriitikko vai vertailussa oleva) */
     let newShares = getShares(visibleData);
@@ -155,7 +159,6 @@ const displayReviewerData = (state, data ) => {
      * Suodatetaan sivulla näytettävät elokuvat, kun sivutus otetaan huomioon
      */
    visibleData = getVisibleItems(visibleData, state.currentPage, state.itemsPerPage);
-
    let paginationLinks = getPaginationLinks(state.currentPage, state.maxNumberOfPaginationLinks, pagesTotal);
 
    /* Päivitetään arvosanataulukon otsikot */
@@ -171,12 +174,12 @@ const displayReviewerData = (state, data ) => {
         loading: false,
         paginationLinks: paginationLinks,
         originalColleaquesList: originalColleaquesList,
-        shares: newShares,
         reviewerData: newReviewerData,
+        scatterPlotData: scatterPlotData,
+        shares: newShares,
         visibleData: visibleData
     };
 }
-
 
 /*
  * Haetaan muiden kriitikkojen arvosteluita sisältävästä taulukosta vertailussa olevan
@@ -628,6 +631,8 @@ const updateComparedColleaque = (state, data, compId) => {
 
     }
 
+
+
     let newCompset = state.compset;         // - aiemmin tiedossa olevat muiden antamat arvosanat
 
     /* Lisätään tarvittaessa luetut arvosanat muiden kriitikkojen antamiin arvosanojen taulukkoon */
@@ -673,6 +678,8 @@ const updateComparedColleaque = (state, data, compId) => {
         state.selectedMovies
     );
 
+    let scatterPlotData = visibleData.map(d => [d.starsAverage, d.compStars]);
+
     /* Jaotetellaan elokuvat sen perustella, kumpi antoi enemmän tähtiä (aktiivinen kriitikko vai vertailussa oleva) */
     let newShares = getShares(visibleData);
     newShares = wrapShares(newShares, false);
@@ -702,6 +709,7 @@ const updateComparedColleaque = (state, data, compId) => {
         headers: newHeaders,
         loading: false,
         paginationLinks: paginationLinks,
+        scatterPlotData: scatterPlotData,
         shares: newShares,
         visibleData: visibleData
     }

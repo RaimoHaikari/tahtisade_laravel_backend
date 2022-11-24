@@ -23,7 +23,7 @@ const Critics = () => {
     return (
         <section className='padding-block-700'>
 
-            <PaginationAndSearch>
+            <PaginationAndSearch className="PaginationAndSearch">
 
                 <Pagination store="reviewerList" />
 
@@ -40,7 +40,7 @@ const Critics = () => {
             </PaginationAndSearch>
 
 
-            <ContentWrap>
+            <ContentWrap className="ContentWrap">
                 <Main>
                     <ReviewerList />
                 </Main>
