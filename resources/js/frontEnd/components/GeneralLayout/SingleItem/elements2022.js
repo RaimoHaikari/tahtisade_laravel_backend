@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+import { AiOutlineZoomIn, AiOutlineZoomOut } from "react-icons/ai";
+
+/* displayBorder */
+export const GraphContainer = styled.div`
+    border-top-width: ${props => (props.displayBorder === true) ? '1px' : '0px' };
+    border-top-style: dashed;
+    border-top-color: ${({theme}) => theme.color.clrAccent500};
+    
+    padding-top: ${({theme}) => theme.size.size100};
+`;
+
 /*
  * Y K S I T T Ä I S E T  K O H T E E T
  *  
@@ -63,4 +74,43 @@ export const PaginationAndSearch = styled.div`
         margin-right: auto;
     }
 
+`;
+
+
+export const ZoomButton = styled.button`
+
+    cursor: pointer;
+    display: ${props => (props.displayZoom === true) ? 'block' : 'none' };
+    margin-left: ${({theme}) => theme.size.size100};
+
+
+
+`;
+
+export const OpenIcon = styled(AiOutlineZoomIn)`
+    color: ${({theme}) => theme.color.clrNeutral900};
+    background-color: ${({theme}) => theme.color.clrAccent100};
+    font-size: ${({theme}) => theme.fontSize.fs700};
+
+    &.hideIcon{
+        display: none;
+    }
+
+    &:hover {
+        background: ${({theme})  => theme.color.clrAccent400};
+    }
+`;
+
+export const CloseIcon = styled(AiOutlineZoomOut)`
+    color: ${({theme}) => theme.color.clrNeutral900};
+    background-color: ${({theme}) => theme.color.clrAccent100};
+    font-size: ${({theme}) => theme.fontSize.fs700};
+
+    &.hideIcon{
+        display: none;
+    }
+    
+    &:hover {
+        background: ${({theme})  => theme.color.clrAccent400};
+    }
 `;

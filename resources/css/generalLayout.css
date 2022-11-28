@@ -1,6 +1,5 @@
 SVG.scatterplot {
-  margin: 10px;
-  outline: 1px solid navy;
+  margin: var(--size-100);
 }
 
 SVG.scatterplot rect, SVG.scatterplot circle {

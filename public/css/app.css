@@ -425,6 +425,7 @@ body {
   width: min(var(--max-width), 100% - (var(--padding) * 2));
   margin-inline: auto;
   background: var(--clr-neutral-100);
+
 }
 
 

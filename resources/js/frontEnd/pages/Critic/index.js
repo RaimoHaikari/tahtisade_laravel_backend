@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,18 +11,15 @@ import Togglable from "../../components/GeneralLayout/Togglable";
 import Reviews from "../../components/SingleReviewer";
 import ReusableD3Donut from "../../components/SingleReviewer/aReusableDonut";
 import CountDown from "../../components/Countdown";
+import Modal from "../../components/GeneralLayout/Modal";
 
 import {
-    Container,
-    InfoCardWrapper,
-    Main,
-    Aside,
-    Graph
-} from "../../components/GeneralLayout/SingleItem/elements";
-
-import {
+    CloseIcon,
+    GraphContainer,
     ContentWrapper,
-    PaginationAndSearch
+    OpenIcon,
+    PaginationAndSearch,
+    ZoomButton
 } from "../../components/GeneralLayout/SingleItem/elements2022";
 
 
@@ -32,6 +29,8 @@ import { updateSearchSetting } from "../../reducers/sharedReducer";
 const binCount = 6;
 
 const Critic = () => {
+
+    const [visible, setVisible] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -61,52 +60,25 @@ const Critic = () => {
 
     }, [data]);
 
-    const displayContentXXX = () => {
+    const drawScatterPlot = (displayBorder, displayZoom) => {
         return (
-            <InfoCardWrapper>
 
-                <Aside>
-                    <Togglable
-                        buttonLabel="Vertailu"
-                        openAtStart={false}
-                    >
-                        <Colleaques />
-                    </Togglable>
-                </Aside>
+            <GraphContainer displayBorder = {displayBorder}>
+                <ZoomButton 
+                    onClick={() => setVisible(!visible)}
+                    displayZoom = {displayZoom}
+                >
+                    <OpenIcon  className={visible?"hideIcon":""} />
+                    <CloseIcon  className={visible?"":"hideIcon"}  />
 
-                <Main>
-                    <PaginationAndSearch>
-                        <Pagination store="singleReviewer" />
-                        <Search 
-                            onSearch={(val) => dispatch(
-                                updateSearchSetting({
-                                    store: 'singleReviewer',
-                                    str: val
-                                })
-                            )}
-
-                            searchStr={searchStr}
-                        />
-                    </PaginationAndSearch>
-                    <Reviews />
-                </Main>
-
-                <Graph>
-                    <Togglable
-                        buttonLabel="Vertailu"
-                        openAtStart= { true }
-                    >
-                    <ReusableD3Donut />
-                    <ScatterPlot
-                            data = { scatterPlotData }
-                            binCount = { binCount }
-                            nameOfActive = {reviewerData !== null ? reviewerData.name : ""}
-                            nameOfComp= {compData !== null ? compData.name : ""}
-                        />
-                    </Togglable>
-                </Graph>
-
-          </InfoCardWrapper>            
+                </ZoomButton>
+                <ScatterPlot
+                    data = { scatterPlotData }
+                    binCount = { binCount }
+                    nameOfActive = {reviewerData !== null ? reviewerData.name : ""}
+                    nameOfComp= {compData !== null ? compData.name : ""}
+                />
+            </GraphContainer>
         )
     }
 
@@ -156,22 +128,24 @@ const Critic = () => {
                             openAtStart= { true }
                         >
                             <ReusableD3Donut />
-                            <ScatterPlot
-                                data = { scatterPlotData }
-                                binCount = { binCount }
-                                nameOfActive = {reviewerData !== null ? reviewerData.name : ""}
-                                nameOfComp= {compData !== null ? compData.name : ""}
-                            />
+                            {
+                                drawScatterPlot(true, true)
+                            }
                         </Togglable>
                     </div>              
 
                 </ContentWrapper>
+
+                <Modal openAtStart = {visible}>
+                    {
+                        drawScatterPlot(false, true)
+                    }
+                </Modal>
+
             </div>
 
         )
     }
-
-    console.log(reviewerData)
 
     return (
         <section className='padding-block-700'>
