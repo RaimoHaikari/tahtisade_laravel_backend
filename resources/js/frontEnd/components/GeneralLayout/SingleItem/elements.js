@@ -17,6 +17,8 @@ export const PaginationAndSearch = styled.div`
     padding-bottom: 2px;
     padding-left: 2px;
 
+    outline: 1px solid red;
+
     display: flex;
 
     & .paginationContainer {
@@ -31,6 +33,8 @@ export const InfoCardWrapper = styled.div`
     padding-right: ${({theme}) => theme.size.size200};
     padding-bottom: ${({theme}) => theme.size.size200};;
     padding-left: ${({theme}) => theme.size.size200};;
+    
+    outline: 1px solid green;
 
     margin: 0px 20px;
 

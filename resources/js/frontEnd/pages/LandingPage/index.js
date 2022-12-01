@@ -11,7 +11,7 @@ const LandingPage = () => {
 
                     <div className="flow">
                         <h1 className="fs-primary-heading fw-bold">Tähtisadetta</h1>
-                        <p className="fw-bold">Katsaus elokuvien ensi-ilta-arvosteluihin</p>
+                        <p className="fw-bold with-letter-spacing">Katsaus elokuvien ensi-ilta-arvosteluihin</p>
                     </div>
 
                     <div>

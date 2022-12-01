@@ -1,5 +1,5 @@
 SVG.scatterplot {
-  margin: 10px;
+  margin: var(--size-100);
 }
 
 SVG.scatterplot rect, SVG.scatterplot circle {
@@ -26,6 +26,9 @@ SVG.scatterplot G.tick text.visually-hidden {
 .tick line.even {
   stroke: #c0c0BB;
 }
+
+
+
 
 /* 
  * T A B S 

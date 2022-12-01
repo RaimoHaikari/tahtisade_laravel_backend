@@ -8,6 +8,7 @@ export const HistogramRight = ({bins, cutoffDisplayText, rHistWidth, y, yx}) => 
                 y = {1}
                 width = {yx(B.length)}
                 height = { rHistWidth }
+                style={{ fill: "var(--clr-accent-400)" }}
             />
             <text
                 dx = "-1em"

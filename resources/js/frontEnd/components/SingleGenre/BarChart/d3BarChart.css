@@ -29,7 +29,7 @@ g.yAxis path.domain {
 
 g.yAxisLbl text {
    letter-spacing: var(--size-300);
-   font-size: smaller;
+   font-size: var(--fs-600);
    text-anchor: middle;
    transform: rotate(-90deg)
 }

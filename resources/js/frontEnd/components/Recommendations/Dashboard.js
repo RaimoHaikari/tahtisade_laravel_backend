@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import ScatterPlot from "../ScatterPlot";
+import ScatterPlot from "../Graphs/ScatterPlot";
 
 import {
     randomNormal,
@@ -45,6 +45,9 @@ const Dashboard = () => {
             return [randomUniform(5.5)(), randomUniform(5.5)()]
         })
 
+        //  [[4, 4],[4, 3],[3, 4],[4, 2],[3, 3],[2, 1],[2, 3],[4, 3],[1, 2]];
+        //const b = [[0, 0],[0, 5],[5, 5],[5,0]]
+
         setData(d);
 
     }, []);
@@ -73,12 +76,14 @@ const Dashboard = () => {
             >
                 T.E.E  J.O.T.A.I.N
             </button>
-            <button onClick={() => dispatch(setPair({p1: "Lisa Rose", p2: "Gene Seymour"}))}>
+            <button onClick={() => dispatch(setPair({p1: "jouniVikman", p2: "avola"}))}>
                 ASETA VERTAILTAVAT
             </button>
             <ScatterPlot
                 data = { data }
                 binCount = { binCount }
+                nameOfComp = "nameOfComp"
+                nameOfActive = "nameOfActive"
             />
         </div>
     );

@@ -28,7 +28,7 @@ const SingleGenre = () => {
 
     return (
         <CONTAINER>
-            <H1>{name}</H1>
+        
             <BarChart />
 
             <TABLE>

@@ -35,6 +35,37 @@ const Movie = () => {
     
     }, []);
 
+    
+    const displayContent = () => {
+        return (
+            <InfoCardWrapper>
+                <Aside>
+                    <Poster
+                        src={data.img}
+                        title={data.nimi}
+                    />
+                </Aside>
+                <Main>
+                    <MovieCard 
+                        actors={data.actors}
+                        directors={data.director}
+                        distributors={data.distributor}
+                        externalLinks={data.externalLinks}
+                        genre={data.genres}
+                        releaseDate={data.ensiIlta}                                
+                        title={data.nimi}
+                        writers={data.writer}
+                    />
+                    <Reviews
+                        headers={data.headers}
+                        stars={data.stars}
+                        tomatoes={data.visibleData}
+                    />
+                </Main>
+            </InfoCardWrapper>
+        )
+    }
+
     return (
         <Container>
             {
@@ -42,31 +73,7 @@ const Movie = () => {
                 ? <CountDown />
                 : data === null
                     ? null
-                    : <InfoCardWrapper>
-                        <Aside>
-                            <Poster
-                                src={data.img}
-                                title={data.nimi}
-                            />
-                        </Aside>
-                        <Main>
-                            <MovieCard 
-                                actors={data.actors}
-                                directors={data.director}
-                                distributors={data.distributor}
-                                externalLinks={data.externalLinks}
-                                genre={data.genres}
-                                releaseDate={data.ensiIlta}                                
-                                title={data.nimi}
-                                writers={data.writer}
-                            />
-                            <Reviews
-                                headers={data.headers}
-                                stars={data.stars}
-                                tomatoes={data.visibleData}
-                            />
-                        </Main>
-                      </InfoCardWrapper>
+                    : displayContent()
             }
         </Container>
     );

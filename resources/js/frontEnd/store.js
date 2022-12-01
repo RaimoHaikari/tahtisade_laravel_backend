@@ -8,6 +8,7 @@ import sharedReducer from './reducers/sharedReducer';
 import singleGenreReducer from './reducers/singleGenreReducer';
 import singleMovieReducer from './reducers/singleMovieReducer';
 import singleReviewerReducer from './reducers/singleReviewerReducer';
+import userReducer from './reducers/userReducer';
 
 const store = configureStore({
     reducer: {
@@ -18,7 +19,8 @@ const store = configureStore({
         shared: sharedReducer,
         singleGenre: singleGenreReducer,
         singleMovie: singleMovieReducer,
-        singleReviewer: singleReviewerReducer
+        singleReviewer: singleReviewerReducer,
+        user: userReducer
     }
 });
 

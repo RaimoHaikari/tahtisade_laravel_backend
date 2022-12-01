@@ -9,6 +9,7 @@ export const HistogramTop = ({bins, cutoffDisplayText, margin,  tHistWidth, x, x
                 x={1}
                 width={tHistWidth}
                 height={margin.top - xy(B.length)}
+                style={{ fill: "var(--clr-primary-400)" }}
             />
             <text
                 dy="1em"

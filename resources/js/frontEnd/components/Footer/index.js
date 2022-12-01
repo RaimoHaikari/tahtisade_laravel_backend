@@ -1,27 +1,27 @@
 import { Link } from "react-router-dom";
 
 import GitHub from "../Logos/Github";
+// import TextLogo from "../Logos/TextLogo";
+import { TextLogo } from "../Logos/StarsLogo/textLogo";
 
 /* 
 padding-block-700 bg-neutral-900 text-neutral-100
 */
 const Footer = () => {
     return (
-        <footer className="primary-footer padding-block-700 bg-neutral-900 text-neutral-100">
+        <footer className="primary-footer padding-block-700 bg-neutral-900">
             <div className="container">
-                <div className="primary-footer-wrapper">
+                <div className="primary-footer-wrapper text-neutral-100">
 
                     <div  className="primary-footer-logo-social">
 
                         <Link to="/" aria-label="home">
-                            TÄHTISADETTA
+                            <TextLogo />
                         </Link>
 
                         <ul className="social-list" role="list" aria-label="social links">
                             <li>
-                                <Link to={{ pathname: "https://github.com/RaimoHaikari/tahtisadetta" }} target="_blank" >
-                                    <GitHub />
-                                </Link>
+                                <a href="https://github.com/RaimoHaikari/tahtisadetta" target="_blank"><GitHub /></a>
                             </li>
                         </ul>
                     
