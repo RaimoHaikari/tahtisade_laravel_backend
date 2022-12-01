@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import SiteLogo from "../SiteLogo";
+import { Logo } from "../Logos/StarsLogo";
+
 
 const Header = () => {
 
@@ -28,7 +29,7 @@ const Header = () => {
                 <div className="nav-wrapper">
 
                     <Link onClick={logoClickHandler} to="/">
-                        <SiteLogo />
+                        <Logo />
                     </Link>
 
                     <button 

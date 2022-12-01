@@ -10,6 +10,8 @@ import Critics from "./pages/Critics";
 import Genre from "./pages/Genre";
 import Genres from "./pages/Genres";
 import LandingPage from "./pages/LandingPage";
+import Login from "./pages/Login";
+import Logout from "./pages/Logout";
 import Movies from "./pages/Movies";
 import Movie from "./pages/Movie";
 import Recommendations from "./pages/Recommendations";

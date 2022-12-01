@@ -11,18 +11,28 @@ import Info from "../../components/SingleGenre/Info";
 import CountDown from '../../components/Countdown';
 
 import {
-    Container,
-    InfoCardWrapper,
-    Main,
-    Aside,
-    Graph
-} from "../../components/GeneralLayout/SingleItem/elements";
+    ContentWrapper,
+} from "../../components/GeneralLayout/SingleItem/elements2022";
+
 
 const Genre = () => {
 
     const dispatch = useDispatch();
  
-    const { data, loading } = useSelector(state => state.singleGenre)
+    const { data, loading, name } = useSelector(state => {
+
+        const genre = state.singleGenre;
+        const activeGenre = genre.activeGenre;
+
+        const name = activeGenre.data !== null
+            ? activeGenre.data.name
+            : ""
+
+        return {
+            ...genre,
+            name: name
+        }
+    });
 
     const id = useParams().id;
 
@@ -31,6 +41,37 @@ const Genre = () => {
     }, []);
 
 
+    const displayContent = () => {
+
+        return(
+            <div className="container">
+                <ContentWrapper>
+
+                    <div></div>
+                    <div className="eka">
+                        <h3>{name}</h3>
+                    </div>
+                    <div></div>
+
+                    <div className="kolmas">
+                        <Togglable buttonLabel="Vertailu">
+                            <GenreList />
+                        </Togglable>
+                    </div>
+                    <div>
+                        <GenreCard />
+                    </div>
+                    <div className="toka">
+                        <Togglable buttonLabel="Ohje">
+                            <Info />
+                        </Togglable>
+                    </div>
+
+                </ContentWrapper>
+            </div>
+        )
+    }
+
     return (
         <section className='padding-block-700'>
         {
@@ -38,21 +79,7 @@ const Genre = () => {
             ? <CountDown />
             : data === null
                 ? null
-                : <InfoCardWrapper>
-                    <Aside>
-                        <Togglable buttonLabel="Vertailu">
-                            <GenreList />
-                        </Togglable>
-                    </Aside>
-
-                    <Main>
-                        <GenreCard />
-                    </Main>
-
-                    <Graph>
-                        <Info />
-                    </Graph>
-                  </InfoCardWrapper>
+                : displayContent()
         }
         </section>
     );

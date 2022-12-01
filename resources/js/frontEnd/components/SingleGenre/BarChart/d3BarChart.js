@@ -103,7 +103,7 @@ export const d3BarChact = () => {
             gYAxisLbl
                 .append('text')
                 .text("Kappaletta")
-                    //.attr('fill','navy')
+                    .attr('fill','var(--clr-neutral-900')
                     //.attr('letter-spacing',5)
                     .attr('x',0)
                     
@@ -112,7 +112,7 @@ export const d3BarChact = () => {
                 .call(xAxis)
                 .append('text')
                 .text("Tähtiä")
-                    .attr('fill','navy')
+                    .attr('fill','var(--clr-neutral-900')
                     //.attr('letter-spacing',5)
                     .attr('x',width / 2)
                     .attr('y',40)
