@@ -22,27 +22,31 @@ const Genres = () => {
 
     return (
         <section className='padding-block-700'>
-            <PaginationAndSearch>
-                <Pagination 
-                    store="genreList"
-                />
-                <Search
-                    onSearch={(val) => dispatch(
-                        updateSearchSetting({
-                            store: 'genreList',
-                            str: val
-                        })
-                    )}
-                    searchStr={search}
-                />
-            </PaginationAndSearch>
 
-            <ContentWrap>
-                <Main>
-                    <GenreList />
-                </Main>
-                <Aside></Aside>
-            </ContentWrap>
+            <div className="container">
+            
+                <PaginationAndSearch>
+                    <Pagination 
+                        store="genreList"
+                    />
+                    <Search
+                        onSearch={(val) => dispatch(
+                            updateSearchSetting({
+                                store: 'genreList',
+                                str: val
+                            })
+                        )}
+                        searchStr={search}
+                    />
+                </PaginationAndSearch>
+
+                <ContentWrap>
+                    <Main>
+                        <GenreList />
+                    </Main>
+                    <Aside></Aside>
+                </ContentWrap>
+            </div>
         </section>
     );
 };

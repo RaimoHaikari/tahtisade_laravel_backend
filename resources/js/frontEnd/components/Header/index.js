@@ -46,7 +46,6 @@ const Header = () => {
                             <li><Link onClick={mobileNavToggleHandler} to="/genret">Genret</Link></li>
                             <li><Link onClick={mobileNavToggleHandler} to="/kriitikot">Kriitikot</Link></li>
                             <li><Link onClick={mobileNavToggleHandler} to="/elokuvat">Elokuvat</Link></li>
-                            <li><Link onClick={mobileNavToggleHandler} to="/suositukset">Recommendations</Link></li>
                         </ul>
                     </nav>
 
@@ -58,3 +57,7 @@ const Header = () => {
 };
 
 export default Header;
+
+/*
+                            <li><Link onClick={mobileNavToggleHandler} to="/suositukset">Recommendations</Link></li>
+*/

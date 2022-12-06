@@ -49,6 +49,7 @@
     --modal-img-max-width: 900px;
   }
   
+  /* --fs-primary-heading: var(--fs-900) */
   @media (min-width: 50em) {
     :root {
       --fs-body: var(--fs-500);
@@ -395,6 +396,10 @@ body {
 /* L e t t e r s p a c i n g */
 .with-letter-spacing {
   letter-spacing: 3px;
+}
+
+.aling-center {
+  text-align: center;
 }
 
 /* Padding */
