@@ -1,5 +1,6 @@
 //import Jambo from "../../components/Logos/Jambo";
 //import Kansi from "../../../../images/tahtisade-kansi-leikattu.png";
+import PreviewCard from "../../components/LandingPage/PreviewCard";
 
 const LandingPage = () => {
 
@@ -10,8 +11,10 @@ const LandingPage = () => {
                 <div className="even-columns">
 
                     <div className="flow">
-                        <h1 className="fs-primary-heading fw-bold">Tähtisadetta</h1>
-                        <p className="fw-bold with-letter-spacing">Katsaus elokuvien ensi-ilta-arvosteluihin</p>
+                        <svg id="landingPage-title" viewBox="0 0 130 20">
+                            <text x="0" y="18">TÄHTISADETTA</text>
+                        </svg>
+                        <p className="fw-bold with-letter-spacing aling-center">Katsaus elokuvien ensi-ilta-arvosteluihin</p>
                     </div>
 
                     <div>

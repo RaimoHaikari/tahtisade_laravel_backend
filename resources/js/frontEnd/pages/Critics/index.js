@@ -23,31 +23,34 @@ const Critics = () => {
     return (
         <section className='padding-block-700'>
 
-            <PaginationAndSearch className="PaginationAndSearch">
+            <div className='container'>
 
-                <Pagination store="reviewerList" />
+                <PaginationAndSearch className="PaginationAndSearch">
 
-                <Search 
-                  onSearch={(val) => dispatch(
-                    updateSearchSetting({
-                        store: 'reviewerList',
-                        str: val
-                    })
-                  )}
-                  searchStr = { search }
-                />
-            
-            </PaginationAndSearch>
+                    <Pagination store="reviewerList" />
+
+                    <Search 
+                    onSearch={(val) => dispatch(
+                        updateSearchSetting({
+                            store: 'reviewerList',
+                            str: val
+                        })
+                    )}
+                    searchStr = { search }
+                    />
+                
+                </PaginationAndSearch>
 
 
-            <ContentWrap className="ContentWrap">
-                <Main>
-                    <ReviewerList />
-                </Main>
-                <Aside>
-                    <Toolbar />
-                </Aside>
-            </ContentWrap>
+                <ContentWrap className="ContentWrap">
+                    <Main>
+                        <ReviewerList />
+                    </Main>
+                    <Aside>
+                        <Toolbar />
+                    </Aside>
+                </ContentWrap>
+            </div>
         </section>
     );
 };
