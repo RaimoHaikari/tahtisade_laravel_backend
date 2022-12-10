@@ -25,14 +25,19 @@ import {
 const DISPLAYTYPE = [
     {
         name: 'Taulukko',
-        active: true,
+        active: false,
         content: 'MOVIELIST_TABLE'
     },
     {
         name: 'Kuvakkeet',
         active: false,
         content: 'MOVIELIST_CARD'
-    }
+    },
+    {
+        name: 'Tilastografiikkana',
+        active: true,
+        content: 'MOVIELIST_GRAPHICAL_OVERVIEW'
+    },
 ];
 
 /*

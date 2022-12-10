@@ -31,13 +31,23 @@ export const Container = styled.div`
         position: relative;
         text-align: center;
         color: ${({theme}) => theme.color.clrAccent500};
-        font-weight: ${({theme}) => theme.fontWeight.fwBold};;
-        font-size: ${({theme}) => theme.fontSize.fs600};
-        letter-spacing: ${({theme}) => theme.size.size100};
-        text-transform: uppercase;
-
+        font-weight: ${({theme}) => theme.fontWeight.fwReqular};
+        font-size: ${({theme}) => theme.fontSize.fs400};
         margin-top: ${({theme}) => theme.size.size100};
     }
+
+    @media screen and (min-width: ${({theme}) => theme.breakPoint.sm}){
+
+        h2.text {
+
+            font-weight: ${({theme}) => theme.fontWeight.fwSemiBold};;
+            font-size: ${({theme}) => theme.fontSize.fs600};
+            letter-spacing: ${({theme}) => theme.size.size100}; 
+            text-transform: uppercase;
+    
+        }
+
+    }  
 
 `;
 
