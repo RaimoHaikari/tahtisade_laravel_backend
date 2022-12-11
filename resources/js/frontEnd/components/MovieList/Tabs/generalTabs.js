@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { updateDisplayType } from "../../../reducers/sharedReducer";
 
+import GraphicalOverview from "../GraphicalOverview";
 import Card from "../Card";
 import TablePresentation from "../TablePresentation";
 import GeneralTable from "../TablePresentation/GeneralTable";
@@ -28,6 +29,8 @@ const GeneralTabs = ({store}) => {
         switch(d.content) {
             case 'MOVIELIST_TABLE':
                 return <TablePresentation key={`${i}-tbl`} />
+            case 'MOVIELIST_GRAPHICAL_OVERVIEW':
+                return <GraphicalOverview key={`${i}-grph`} />
             case 'MOVIELIST_CARD':
                 return <Card key={`${i}-card`} />
             case 'GENRELIST_TABLE':

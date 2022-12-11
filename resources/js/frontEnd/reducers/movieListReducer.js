@@ -20,7 +20,13 @@ import {
 } from "react-icons/si";
 
 /*
- *
+
+    {
+        name: 'Tilastografiikkana',
+        active: true,
+        content: 'MOVIELIST_GRAPHICAL_OVERVIEW'
+    }
+
  */
 const DISPLAYTYPE = [
     {
@@ -32,7 +38,8 @@ const DISPLAYTYPE = [
         name: 'Kuvakkeet',
         active: false,
         content: 'MOVIELIST_CARD'
-    }
+    },
+
 ];
 
 /*

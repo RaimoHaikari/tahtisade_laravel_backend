@@ -10,7 +10,14 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     background: transparent;
-    padding: ${({theme}) => theme.size.size200};
+
+    padding-bottom: ${({theme}) => theme.size.size200};
+    
+
+    @media screen and (min-width:  ${({theme}) => theme.breakPoint.sm}){
+        padding: ${({theme}) => theme.size.size200};
+    }
+
 `;
 
 export const UL = styled.ul`

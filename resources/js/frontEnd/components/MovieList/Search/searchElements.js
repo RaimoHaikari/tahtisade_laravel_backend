@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const SearchContainer = styled.div`
 
-    margin-left: auto;
+    @media screen and (min-width:  ${({theme}) => theme.breakPoint.sm}){
+        margin-left: auto;
+    }
 `;
 
 export const INPUT = styled.input`

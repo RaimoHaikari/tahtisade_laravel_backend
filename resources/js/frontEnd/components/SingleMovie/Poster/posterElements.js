@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    minWidth: 250px;
+    /* minWidth: 250px; */
     margin: 10px;
 `;
 

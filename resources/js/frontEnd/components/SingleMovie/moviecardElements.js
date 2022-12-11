@@ -69,7 +69,11 @@ export const TD = styled.td`
 
 export const SPAN = styled.span`
     margin: 0 10px 5px 0;
-    white-space:nowrap;
+    white-space:no-wrap;
+
+    &.wrap {
+        white-space:normal;
+    }
 `;
 
 export const LINKKI =  styled.a`
