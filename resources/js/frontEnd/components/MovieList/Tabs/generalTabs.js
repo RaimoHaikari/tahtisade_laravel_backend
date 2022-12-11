@@ -73,8 +73,6 @@ const GeneralTabs = ({store}) => {
             {
                 displayTypes.map((d,i) => {
 
-                    console.log(d)
-
                     return (
                         <BUTTON
                             key={i}

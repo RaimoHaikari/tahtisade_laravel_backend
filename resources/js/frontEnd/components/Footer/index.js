@@ -8,6 +8,7 @@ import { TextLogo } from "../Logos/StarsLogo/textLogo";
 padding-block-700 bg-neutral-900 text-neutral-100
 */
 const Footer = () => {
+
     return (
         <footer className="primary-footer padding-block-700 bg-neutral-900">
             <div className="container">
@@ -30,7 +31,7 @@ const Footer = () => {
                     <div className="primary-footer-nav">
                         <nav className="footer-nav">
                             <ul className="flow" aria-label="Footer" role="list">
-                                <li><Link to="/about">About</Link></li>
+                                <li><Link to="/about">.About</Link></li>
                             </ul>
                         </nav>
                     </div>
