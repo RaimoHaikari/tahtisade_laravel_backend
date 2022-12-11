@@ -790,7 +790,7 @@ export const updateGenresVisibility = (val) => {
  */
 export const updateSingleGenreVisibility = (val) => {
 
-    console.log("- updateSingleGenreVisibility")
+    // console.log("- updateSingleGenreVisibility")
 
     return dispatch => {
         dispatch(
