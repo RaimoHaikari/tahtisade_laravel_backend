@@ -13,7 +13,12 @@ export const PaginationAndSearch = styled.div`
 
     
 
-    display: flex;
+    display: flex;  
+
+    @media screen and (max-width:  ${({theme}) => theme.breakPoint.sm}){
+        flex-direction: column;
+    }
+
 
     & .paginationContainer {
         margin-right: auto;

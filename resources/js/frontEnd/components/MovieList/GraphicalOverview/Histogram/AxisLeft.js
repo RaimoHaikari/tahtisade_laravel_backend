@@ -1,26 +1,34 @@
+import { ticks } from "d3";
+import {
+    Line, Text
+} from "./histogramElements";
+
 export const AxisLeft = ({marginLeft, yScale, width}) => {
+
+
     return (
         <g>
         {
             yScale.ticks().map((tickValue, index) => {
 
+
                 return(
                     <g
-                        className="tick"
                         transform={`translate(${marginLeft}, ${yScale(tickValue)})`}
                         key = {`histogram-leftAxis-tick-${index}`}
                     >
-                        <line 
+                        <Line 
                             x2 = {width - marginLeft}
-                            strokeOpacity = "0.2"
+                            strokeOpacity = "0.5"
+                            className={index !== 0 ? "dotted" : null}
                         />
-                        <text 
+                        <Text 
                             dy="-.3em"
                             dx="-.3em"
                             textAnchor="end"
                         >
                             {tickValue}
-                        </text>
+                        </Text>
                     </g>
                 )
             })

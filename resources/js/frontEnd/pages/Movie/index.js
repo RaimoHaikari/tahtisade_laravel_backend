@@ -13,6 +13,10 @@ import {
     Main
 } from "../../components/GeneralLayout/SingleItem/elements";
 
+import {
+    ContentWrapper
+} from "../../components/GeneralLayout/SingleItem/elements2022"
+
 import MovieCard from '../../components/SingleMovie';
 import Poster from '../../components/SingleMovie/Poster';
 import Reviews from '../../components/SingleMovie/Reviews';
@@ -36,7 +40,7 @@ const Movie = () => {
     }, []);
 
     
-    const displayContent = () => {
+    const displayContentBAK = () => {
         return (
             <InfoCardWrapper>
                 <Aside>
@@ -66,7 +70,65 @@ const Movie = () => {
         )
     }
 
+    const displayContent = () => {
+        return (
+            <div className="container">
+                <ContentWrapper>
+
+                    <div></div>
+                    <div className="eka">
+                        <h3>{data.nimi}</h3>
+                    </div>
+                    <div></div>
+
+                    <div className="kolmas">
+                        <Poster
+                            src={data.img}
+                            title={data.nimi}
+                        />
+                    </div>
+
+                    <div>
+                        <MovieCard 
+                            actors={data.actors}
+                            directors={data.director}
+                            distributors={data.distributor}
+                            externalLinks={data.externalLinks}
+                            genre={data.genres}
+                            releaseDate={data.ensiIlta}                                
+                            title={data.nimi}
+                            writers={data.writer}
+                        />
+                        <Reviews
+                            headers={data.headers}
+                            stars={data.stars}
+                            tomatoes={data.visibleData}
+                        />
+                    </div>
+
+
+                    <div className="toka">
+                    </div>
+
+                </ContentWrapper>
+            </div>
+        )
+    }
+
     return (
+        <section className='padding-block-700'>
+            {
+                (loading === true)
+                ? <CountDown />
+                : data === null
+                    ? null
+                    : displayContent()
+            }
+        </section>
+    );
+};
+
+/*
         <Container>
             {
                 (loading === true)
@@ -76,7 +138,7 @@ const Movie = () => {
                     : displayContent()
             }
         </Container>
-    );
-};
+
+*/
 
 export default Movie;

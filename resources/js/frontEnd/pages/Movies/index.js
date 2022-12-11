@@ -39,7 +39,7 @@ const Movies = () => {
                             })
                         )}
 
-                        seachStr={search}
+                        searchStr = { search }
                     />
                 </PaginationAndSearch>
 

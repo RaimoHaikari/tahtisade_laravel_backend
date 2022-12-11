@@ -80,23 +80,59 @@ const MovieCard = ({actors, directors, distributors, externalLinks, genre, relea
      * - esim. näyttelijät, ohjaajat...
      */
     const writeKaviData = (title, data) => {
+
         return (
             <TR>
                 <TD className="movieCardTitle">{title}</TD>
                 <TD className="movieCardList">
                     {
-                        data.map(d =>  <SPAN key={d.kaviID}>{d.nimi}</SPAN>)
+                        data.map(d =>  <SPAN className={ title === 'Jakelija' ? 'wrap' : null } key={d.kaviID}>{d.nimi}</SPAN>)
                     }
                 </TD>
             </TR>            
         )
     }
 
-
     return (
         <CONTAINER>
-            <H1>{title}</H1>
             <TABLE>
+                <TBODY>
+                    {writeKaviData("Näyttelijät", actors)}
+                    {writeKaviData("Ohjaus", directors)}
+                    {writeKaviData("Käsikirjoitus", writers)}
+                    {writeKaviData("Jakelija", distributors)} 
+
+                    <TR>
+                        <TD className="movieCardTitle">Genre</TD>
+                        <TD className="movieCardList">
+                            {
+                                genre.map(g =>  <SPAN key={`key_${g.genre}`}>{g.genre}</SPAN>)
+                            }
+                        </TD>
+                    </TR> 
+
+                    <TR>
+                        <TD className="movieCardTitle">Ensi-ilta</TD>
+                        <TD>
+                            {
+                                getReleaseDateStr()
+                            }
+                        </TD>
+                    </TR>
+
+                    {getExternaLinks()}
+                    
+                </TBODY>
+            </TABLE>
+        </CONTAINER>
+    );
+};
+
+export default MovieCard;
+
+/*
+
+<TABLE>
                 <TBODY>
                     {writeKaviData("Näyttelijät", actors)}
                     {writeKaviData("Ohjaus", directors)}
@@ -120,9 +156,5 @@ const MovieCard = ({actors, directors, distributors, externalLinks, genre, relea
                     </TR>
                     {getExternaLinks()}
                 </TBODY>
-            </TABLE>           
-        </CONTAINER>
-    );
-};
-
-export default MovieCard;
+            </TABLE>  
+*/

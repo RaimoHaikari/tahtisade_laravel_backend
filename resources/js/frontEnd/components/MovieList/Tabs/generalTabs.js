@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { updateDisplayType } from "../../../reducers/sharedReducer";
 
-import GraphicalOverview from "../graphicalOverview";
+import GraphicalOverview from "../GraphicalOverview";
 import Card from "../Card";
 import TablePresentation from "../TablePresentation";
 import GeneralTable from "../TablePresentation/GeneralTable";

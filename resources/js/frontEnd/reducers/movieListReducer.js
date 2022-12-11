@@ -20,12 +20,18 @@ import {
 } from "react-icons/si";
 
 /*
- *
+
+    {
+        name: 'Tilastografiikkana',
+        active: true,
+        content: 'MOVIELIST_GRAPHICAL_OVERVIEW'
+    }
+
  */
 const DISPLAYTYPE = [
     {
         name: 'Taulukko',
-        active: false,
+        active: true,
         content: 'MOVIELIST_TABLE'
     },
     {
@@ -33,11 +39,7 @@ const DISPLAYTYPE = [
         active: false,
         content: 'MOVIELIST_CARD'
     },
-    {
-        name: 'Tilastografiikkana',
-        active: true,
-        content: 'MOVIELIST_GRAPHICAL_OVERVIEW'
-    },
+
 ];
 
 /*

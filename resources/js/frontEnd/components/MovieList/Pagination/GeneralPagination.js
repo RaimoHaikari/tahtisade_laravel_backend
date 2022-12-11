@@ -41,7 +41,7 @@ const GeneralPagination = ({ store }) => {
     }, [currentPage, paginationLinks]);
 
     return (
-        <Container>
+        <Container className='paginationContainer'>
             <UL>
                 {paginationItems}
             </UL>

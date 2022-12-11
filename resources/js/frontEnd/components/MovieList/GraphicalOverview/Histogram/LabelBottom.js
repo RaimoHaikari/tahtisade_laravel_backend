@@ -1,10 +1,14 @@
-export const LabelBottom = ({marginLeft, title, width}) => {
+import { Text } from "./histogramElements";
+
+export const LabelBottom = ({ height, title, width }) => {
+
     return (
-        <g>
-            <text
-                transform={`translate(${marginLeft/2},${width/2}) rotate(270)`}
-                dy="-.45em"
-            >{title}</text>
+        <g transform={`translate(${width/2}, ${height})`}>
+            <Text
+                dy="-.6em"
+                textAnchor="middle"
+            >{title}</Text>
         </g>
     )
+
 }

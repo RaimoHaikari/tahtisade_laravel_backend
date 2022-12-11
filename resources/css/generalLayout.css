@@ -30,7 +30,7 @@ SVG.scatterplot rect, SVG.scatterplot circle {
 SVG.scatterplot text {
   font-size: var(--fs-300);
   text-anchor: middle;
-  fill: var(--clr-neutral-100);;
+  fill: var(--clr-neutral-100);
 }
 
 SVG.scatterplot G.tick text {
